@@ -1,3 +1,3 @@
-import { Context } from "aws-lambda"
+import Events = NodeJS.Events
 
-export const handler = (event: Event, context: Context) => {}
+exports.handler = (event: Events): void => {}

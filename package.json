@@ -4,11 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "yarn run tsc index.ts",
-    "format": "yarn run prettier --config .prettierrc index.ts --write"
+    "build": "yarn run tsc",
+    "format": "yarn run prettier --config .prettierrc *.ts *.js --write"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.3",
     "@types/node": "^10.0.8",
     "prettier": "^1.12.1",
     "typescript": "^2.8.3"
