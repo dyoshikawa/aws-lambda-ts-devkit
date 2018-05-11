@@ -8,6 +8,8 @@
     "format": "yarn run prettier --config .prettierrc *.ts *.js --write"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.3",
+    "@types/aws-sdk": "^2.7.0",
     "@types/node": "^10.0.8",
     "prettier": "^1.12.1",
     "typescript": "^2.8.3"
