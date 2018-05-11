@@ -7,6 +7,7 @@
     "build": "yarn run tsc index.ts"
   },
   "devDependencies": {
+    "prettier": "^1.12.1",
     "typescript": "^2.8.3"
   }
 }
