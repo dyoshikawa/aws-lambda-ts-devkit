@@ -1,7 +1,3 @@
-function greeter(person: string) {
-  return "Hello, " + person
-}
+import { Context } from "aws-lambda"
 
-let user = "Toriyabot User"
-
-document.body.innerHTML = greeter(user)
+export const handler = (event: Event, context: Context) => {}
