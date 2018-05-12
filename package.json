@@ -1,18 +1,23 @@
 {
-  "name": "test",
-  "version": "1.0.0",
+  "name": "aws-lambda-ts-devkit",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "test": "yarn run-local-lambda --file index.js --event tests/event.json",
+    "deploy": "yarn predeploy && aws lambda update-function-code --function-name arn:aws:lambda:ap-northeast-1:441602274428:function:get-kklabel-scores --zip-file fileb://lambda-deployment.zip",
+    "predeploy": "zip lambda-deployment.zip *.js",
     "build": "yarn run tsc",
+    "watch": "onchange *.ts -- yarn build",
     "format": "yarn run prettier --config .prettierrc *.ts *.js --write"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.3",
     "@types/aws-sdk": "^2.7.0",
     "@types/node": "^10.0.8",
+    "onchange": "^4.0.0",
     "prettier": "^1.12.1",
+    "run-local-lambda": "^1.1.1",
     "typescript": "^2.8.3"
-  },
-  "dependencies": {}
+  }
 }
