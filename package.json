@@ -4,20 +4,24 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "yarn run-local-lambda --file index.js --event tests/event.json",
-    "deploy": "yarn predeploy && aws lambda update-function-code --function-name ARN --zip-file fileb://lambda-deployment.zip",
-    "predeploy": "zip lambda-deployment.zip *.js",
+    "test": "yarn build && yarn run-local-lambda --file index.js --event tests/event.json",
+    "deploy": "yarn build && zip -r lambda-deployment.zip *.js node_modules && aws lambda update-function-code --function-name {ARN} --zip-file fileb://lambda-deployment.zip",
     "build": "yarn run tsc",
     "watch": "onchange *.ts -- yarn build",
+    "watch-test": "onchange *.ts -- yarn test",
     "format": "yarn run prettier --config .prettierrc *.ts *.js --write"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.3",
     "@types/aws-sdk": "^2.7.0",
+    "@types/axios": "^0.14.0",
     "@types/node": "^10.0.8",
     "onchange": "^4.0.0",
     "prettier": "^1.12.1",
     "run-local-lambda": "^1.1.1",
     "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
   }
 }
